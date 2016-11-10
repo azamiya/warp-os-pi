@@ -12,11 +12,11 @@ function start(io, fs, debug){
     });
   });
 
-    const path = getAvailableDevicePaths()[0];
+    /*const path = getAvailableDevicePaths()[0];
     if (!path) {
       return "Device cannot use";
     }
-    debug(`connect to ${path}`);
+    debug(`connect to ${path}`);*/
     const options = {
       baudRate: 115200,
       dataBits:8,
@@ -24,8 +24,8 @@ function start(io, fs, debug){
       flowControl:false
     };
     //const port = new SerialPort(path, options);
-    const port = new SerialPort("/dev/cu.usbserial-DA01NMCP", options);
-    //const port = new SerialPort("/dev/ttyUSB0", options);
+    //const port = new SerialPort("/dev/cu.usbserial-DA01NMCP", options);
+    const port = new SerialPort("/dev/ttyUSB0", options);
 
 
     let inputBuffer = null;
