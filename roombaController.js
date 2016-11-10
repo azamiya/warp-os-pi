@@ -1,4 +1,5 @@
-const SerialPort = require("serialport");
+"use strict"
+const SerialPort = require("serialport").SerialPort;
 const fs = require("fs");
 const debug = require("debug")("create2:driver");
 const Repl = require("repl");
@@ -64,9 +65,18 @@ function start(io, fs, debug){
       debug(buf.toJSON().data.toString());
     }
 
+    function write(data) {
+      let arr = new Uint8Array(data.length);
+      for(let i = 0; i < data.length; i++){
+        arr[i] = data[i];
+      }
+      port.write(arr.buffer);
+    }
+
     function main() {
-        port.write(Buffer.from([128]));
-        port.write(Buffer.from([131]));
+        write([128]);
+        write([131]);
+        write([7]);
     }
 
       var commands=[
@@ -74,14 +84,14 @@ function start(io, fs, debug){
         () => { drive(255, 255); },
         () => { drive(-80, 80); },
         () => { drive(80, -80); },
-        () => { port.write(Buffer.from([7])) },
-        () => { port.write(Buffer.from([132])) },
-        () => { port.write(Buffer.from([131])) },
-        () => { port.write(Buffer.from([128])) },
-        () => { port.write(Buffer.from([139, 0, 125, 255])) },
-        () => { port.write(Buffer.from([139, 0, 0, 0])) },
+        () => { write([7])},
+        () => { write([132])},
+        () => { write([131])},
+        () => { write([128]) },
+        () => { write([139, 0, 125, 255]) },
+        () => { write([139, 0, 0, 0]) },
         //(arr) =>{ port.write(Buffer.from(arr)) },
-        () => { port.write(Buffer.from([140, 3, 1, 64, 16, 141, 3])) },
+        () => { write([140, 3, 1, 64, 16, 141, 3])},
         //(str) => {var a = str.split("").map((c) => {return  c.charCodeAt();}); a.unshift(164); port.write(Buffer.from(a)); },
         //drive,
         () => { close() },
