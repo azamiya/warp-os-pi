@@ -25,10 +25,16 @@ Serialport : ver 2.1.2
 **01-1. led blink**  
 Simple LED blink sample.  
 Local demo : http://localhost:PORT/01-1.ledBlink/  
+```sh
+$ node debugger.js
+```  
 
 **01-2. slider for servo control**   
 control servo using simple slider  
-Local demo : http://localhost:PORT/01-2.sliderServo/  
+Local demo : http://localhost:PORT/01-2.sliderServo/   
+```sh
+$ node debugger.js
+```  
 
 
 ![yellowLine](client/assets/images/yellowLine.png)
