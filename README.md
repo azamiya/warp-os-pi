@@ -29,15 +29,13 @@ Local demo : http://localhost:PORT/01-1.ledBlink/
 $ node debugger.js
 ```  
 
-**01-2. slider for servo control**   
-control servo using simple slider  
+**01-2. servo control with slider**   
 Local demo : http://localhost:PORT/01-2.sliderServo/   
 ```sh
-$ node debugger.js
+$ node debugger.js　　
 ```  
 
 **02-1. roomba local controller**   
-control roomba from local    
 Local demo : http://localhost:PORT/02-1.roombaController/   
 ```sh
 $ node roombaDebugger.js
@@ -48,6 +46,16 @@ Mac OSX : /dev/cu.usbserial-DA01NMCP
 ```sh
 $ ls /dev | grep tty
 ```  
+
+**02-2. roomba local controller with LED blink and slider servo control**   
+Local demo : http://localhost:PORT/02-2.roombaServoLed/   
+```sh
+$ node index.js  
+```    
+:warning: this demo does not work on Mac OSX.(maybe some serial port problem)      
+
+
+
 
 ![yellowLine](client/assets/images/yellowLine.png)
 
