@@ -24,7 +24,9 @@ function start(io, fs, debug){
       flowControl:false
     };
     //const port = new SerialPort(path, options);
-    const port = new SerialPort("/dev/cu.usbserial-DA01NMCP", options);
+    //const port = new SerialPort("/dev/cu.usbserial-DA01NMCP", options);
+    const port = new SerialPort("/dev/ttyUSB0", options);
+
 
     let inputBuffer = null;
 
