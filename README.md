@@ -13,7 +13,7 @@ $ cd path
 $ npm install
 $ npm start
 ```
-※WARNING : You have to connect arduino first and roomba serial cable.  
+:warning: You have to connect arduino first and roomba serial cable.  
 
 ![yellowLine](client/assets/images/yellowLine.png)
 ### Dependencies     
@@ -36,6 +36,18 @@ Local demo : http://localhost:PORT/01-2.sliderServo/
 $ node debugger.js
 ```  
 
+**02-1. roomba local controller**   
+control roomba from local    
+Local demo : http://localhost:PORT/02-1.roombaController/   
+```sh
+$ node roombaDebugger.js
+```  
+:warning: please check correct path to roomba    
+Raspberry Pi : /dev/ttyUSB0  
+Mac OSX : dev/cu.usbserial-DA01NMCP
+```sh
+$ ls /dev | grep tty
+```  
 
 ![yellowLine](client/assets/images/yellowLine.png)
 
