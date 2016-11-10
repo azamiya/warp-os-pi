@@ -34,6 +34,7 @@ Local demo : http://localhost:PORT/01-2.sliderServo/
 ```sh
 $ node debugger.js　　
 ```  
+![yellowLine](client/assets/images/yellowLine.png)  
 
 **02-1. roomba local controller**   
 Local demo : http://localhost:PORT/02-1.roombaController/   
