@@ -16,6 +16,11 @@ $ npm start
 ※WARNING : You have to connect arduino first and roomba serial cable.  
 
 ![yellowLine](client/assets/images/yellowLine.png)
+### Dependencies     
+Node : ver 4.6.1  
+Serialport : ver 2.1.2  
+
+![yellowLine](client/assets/images/yellowLine.png)
 ### Index    
 **01-1. led blink**  
 Simple LED blink sample.  
