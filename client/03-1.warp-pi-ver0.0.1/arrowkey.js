@@ -20,7 +20,7 @@ var commandList = {
 }
 
 var irobotCommand = io.connect('http://localhost:4200/irobotCommand');
-var socket = io.connect('localhost:4222');
+var socket = io.connect('localhost:4200');
 
 function keyPressed(key, pressed) {
   if (key < 37 || 40 < key) {
