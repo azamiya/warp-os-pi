@@ -1,0 +1,25 @@
+{
+  "name": "warp-os-pi",
+  "version": "1.0.0",
+  "description": "warp os for Raspberry Pi 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdra0624/warp-os-pi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdra0624/warp-os-pi/issues"
+  },
+  "homepage": "https://github.com/cdra0624/warp-os-pi#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "johnny-five": "^0.10.5",
+    "socket.io": "^1.5.1"
+  }
+}
