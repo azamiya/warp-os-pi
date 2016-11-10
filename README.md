@@ -44,7 +44,7 @@ $ node roombaDebugger.js
 ```  
 :warning: please check correct path to roomba    
 Raspberry Pi : /dev/ttyUSB0  
-Mac OSX : dev/cu.usbserial-DA01NMCP
+Mac OSX : /dev/cu.usbserial-DA01NMCP
 ```sh
 $ ls /dev | grep tty
 ```  
