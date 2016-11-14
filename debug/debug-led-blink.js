@@ -33,9 +33,7 @@ Devices.getArduinoComName().then(function (port) {
     port: port
   });
   console.log("port is : " + port);
-  board.on("ready", function(){
-    console.log("hello ready");
-  });
+  board.on("ready", boardHandler());
   board.on("fail", function (event) {
     console.error(event);
   });
