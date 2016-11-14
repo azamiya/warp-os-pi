@@ -23,7 +23,11 @@ window.onload = function(){
 peer.on('connection', function(conn) {
     document.getElementById("partnerID").innerHTML = conn.peer;
     conn.on('data', function(data){
-        console.log(data[1]);
+        //console.log(data[1]);
+        if(data[0] == 's') {
+            yaw = data[1];
+        }
+        console.log(yaw);
         document.getElementById("receive_message").innerHTML = data;
         /*console.log(typeof(data));
         console.log(data[0]);
