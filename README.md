@@ -63,5 +63,7 @@ $ node index.js
 ### References ###
 [adawarp.com](http://adawarp.com/)  
 
-[nvm and node install guide](http://make.kosakalab.com/make/electronic-work/nodejs_raspi/)
+[nvm and node install guide](http://make.kosakalab.com/make/electronic-work/nodejs_raspi/)  
+
+[remote raspberrypi desktop](http://www.myu.ac.jp/~xkozima/lab/raspTutorial1.html)  
 
