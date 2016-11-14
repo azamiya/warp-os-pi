@@ -10,6 +10,8 @@ var connectedCall;
 var myID;
 var partnerID;
 
+var yaw = 90;
+
 window.onload = function(){
     displayMyCamera();
     peer.on('open', function(){
@@ -23,6 +25,7 @@ peer.on('connection', function(conn) {
     conn.on('data', function(data){
         document.getElementById("receive_message").innerHTML = data;
         //convertData(data);
+        data = parseInt(data);
         console.log(typeof(data));
     });
 });
