@@ -17,19 +17,19 @@ const io = require('socket.io')(http);
 var board = null;
 var led = null;
 
-/*Devices.getArduinoComName().then(function (port) {
+Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
   board = new five.Board({
     "repl": false,
     port: port
   });
-  board.on("ready", boardHandler(led));
+  board.on("ready", boardHandler);
   board.on("fail", function (event) {
     console.error(event);
   });
-});*/
+});
 
-Devices.getArduinoComName().then(function (port) {
+/*Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
   board = new five.Board({
     "repl": false,
@@ -46,7 +46,7 @@ Devices.getArduinoComName().then(function (port) {
       console.error(event);
     });
   });
-});
+});*/
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -58,7 +58,7 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-function boardHandler(led) {
+function boardHandler() {
   console.log("Board ready, lets add light");
   console.log(five);
   led = new five.Led(11);
