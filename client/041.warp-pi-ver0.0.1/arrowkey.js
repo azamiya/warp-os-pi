@@ -42,9 +42,9 @@ function convertData(data) {
     socket.emit('ledStatus', true);
   } else if (data == "LedOff") {
     socket.emit('ledStatus', false);
-  } else if (typeof data == "string" && data[0] !== "servo"){
+  } else if (typeof data == "string" && data[0] !== "s"){
     //irobotCommand.emit("message",{id : commandList[data]});
-  } else if (data[0] === "servo"){
+  } else if (data[0] === "s"){
     console.log(data[1]);
     //outputUpdate(data[1]);
   } else {
