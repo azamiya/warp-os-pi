@@ -29,25 +29,6 @@ Devices.getArduinoComName().then(function (port) {
   });
 });
 
-/*Devices.getArduinoComName().then(function (port) {
-  console.log("hello arduino board");
-  board = new five.Board({
-    "repl": false,
-    port: port
-  });
-  board.on("ready", function () {
-    console.log("Board ready, lets add light");
-    //console.log(five);
-    led = new five.Led(11);
-    console.log("hey led");
-    led.on();
-    console.log("initial led on");  
-    board.on("fail", function (event) {
-      console.error(event);
-    });
-  });
-});*/
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
@@ -60,11 +41,8 @@ http.listen(PORT, function () {
 
 function boardHandler() {
   console.log("Board ready, lets add light");
-  console.log(five);
   led = new five.Led(11);
-  console.log("hey led");
   led.on();
-  console.log("initial led on");
 };
 
 io.sockets.on('connection', function(socket) {
