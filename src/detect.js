@@ -1,19 +1,20 @@
 'use strict';
-const SerialPort = require('serialport');
-const arduinoVID = '0x2a03';
-const arduinoPID = '0x0043';
-const roombaVID = '0x0403';
-const roombaPID = '0x6015';
+
+var SerialPort = require('serialport');
+var arduinoVID = '0x2a03';
+var arduinoPID = '0x0043';
+var roombaVID = '0x0403';
+var roombaPID = '0x6015';
 
 function detectComNameById(vendorId, productId) {
-  return new Promise((resolve, reject) => {
-    SerialPort.list((err, devices) => {
+  return new Promise(function (resolve, reject) {
+    SerialPort.list(function (err, devices) {
       if (err) {
         reject(err);
       }
 
-      for (let key in devices) {
-        let device = devices[key];
+      for (var key in devices) {
+        var device = devices[key];
         if (device.vendorId === vendorId && device.productId === productId) {
           resolve(device.comName);
         }
@@ -51,7 +52,7 @@ function getRoombaComName() {
 }
 
 module.exports = {
-  getArduinoComName,
-  getRoombaComName,
-  detectComNameById
+  getArduinoComName: getArduinoComName,
+  getRoombaComName: getRoombaComName,
+  detectComNameById: detectComNameById
 };
