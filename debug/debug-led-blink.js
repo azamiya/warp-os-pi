@@ -22,15 +22,17 @@ const io = require('socket.io')(http);
     console.error(event);
   });
 });*/
+const five = require('johnny-five');
 
 Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
-  const five = require('johnny-five');
   board = new five.Board({
     "repl": false,
     port: port
   });
-  board.on("ready", boardHandler());
+  board.on("ready", function(){
+    console.log("hello ready");
+  });
   board.on("fail", function (event) {
     console.error(event);
   });
