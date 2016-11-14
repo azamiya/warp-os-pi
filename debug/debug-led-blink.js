@@ -49,12 +49,12 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-function boardHandler(led) {
+function boardHandler(l) {
   console.log("Board ready, lets add light");
-  console.log(five);
-  led = new five.Led(11);
+  console.log(l);
+  l = new five.Led(11);
   console.log("hey led");
-  led.on();
+  l.on();
   console.log("initial led on");
 };
 
