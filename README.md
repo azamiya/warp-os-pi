@@ -55,7 +55,15 @@ $ node index.js
 ```    
 :warning: this demo does not work on Mac OSX.(maybe some serial port problem)      
 
-
+### Node.js installation  
+```sh
+$ vim /home/pi/.bashrc
+```  
+and add  
+```sh
+source /usr/local/nvm/nvm.sh
+```  
+to the end of the line.  
 
 
 ![yellowLine](client/assets/images/yellowLine.png)
@@ -66,4 +74,8 @@ $ node index.js
 [nvm and node install guide](http://make.kosakalab.com/make/electronic-work/nodejs_raspi/)  
 
 [remote raspberrypi desktop](http://www.myu.ac.jp/~xkozima/lab/raspTutorial1.html)  
+
+
+
+
 
