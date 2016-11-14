@@ -48,6 +48,12 @@ button{
       <video id="myVideo" style="display: none" autoplay muted></video>
       <video id="partnerVideo" style="display: none;" autoplay></video>
   </div>
+  <div>
+    <label for="fader">Volume</label>
+    <input type="range" min="30" max="150" value="90" id="fader" 
+      step="1" oninput="outputUpdate(value)">
+    <output for="fader" id="volume">90</output>
+  </div>
 
   <hr>
 	<button onclick="Reset()">Reset</button>

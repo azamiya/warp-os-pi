@@ -94,3 +94,9 @@ function LedOn(){
 function LedOff(){
   socket.emit('ledStatus', false);
 }
+
+function outputUpdate(vol) {
+  document.querySelector('#volume').value = vol;
+  console.log(vol);
+  socket.emit('servo', vol);
+}
