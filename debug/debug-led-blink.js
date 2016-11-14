@@ -33,7 +33,7 @@ Devices.getArduinoComName().then(function (port) {
     "repl": false,
     port: port
   });
-  board.on("ready", boardHandler());
+  board.on("ready", boardHandler(led));
   board.on("fail", function (event) {
     console.error(event);
   });
@@ -49,7 +49,7 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-function boardHandler() {
+function boardHandler(led) {
   console.log("Board ready, lets add light");
   console.log(five);
   led = new five.Led(11);
