@@ -20,9 +20,17 @@ http.listen(PORT, function () {
 const five = require('johnny-five');
 let board = new five.Board({"repl":false});
 let led = null;
+let yaw = 90;
+let servo_yaw = 90;
+
 
 board.on("ready", function() {
   console.log("hello board");
+  servo_yaw = new five.Servo({
+    pin : 6,
+    range: [30, 150],
+    startAt: 90
+  });
   led = new five.Led(11);
   led.on();
 });
@@ -37,5 +45,8 @@ io.sockets.on('connection', function(socket) {
       console.log("Led off...");
       led.stop().off();
     }
+  });
+  socket.on('servo', function(vol) {
+    servo_yaw.to(vol);
   });
 });
