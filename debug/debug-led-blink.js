@@ -29,12 +29,10 @@ var led = null;
 
 Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
-  console.log("port01 is : " + port);
   board = new five.Board({
     "repl": false,
     port: port
   });
-  console.log("port is : " + port);
   board.on("ready", boardHandler());
   board.on("fail", function (event) {
     console.error(event);
@@ -51,7 +49,6 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-
 function boardHandler() {
   console.log("Board ready, lets add light");
   led = new five.Led(11);
@@ -59,7 +56,7 @@ function boardHandler() {
   led.on();
   console.log("initial led on");
 };
-
+/*
 io.sockets.on('connection', function(socket) {
   console.log("hello socket");
   socket.on('ledStatus', function(status) {
@@ -71,4 +68,4 @@ io.sockets.on('connection', function(socket) {
       led.stop().off();
     }
   });
-});
+});*/
