@@ -14,20 +14,10 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-/*Devices.getArduinoComName().then(function (port) {
-  board = new five.Board({
-    "repl": false,
-    port: port
-  });
-  board.on("ready", boardHandler);
-  board.on("fail", function (event) {
-    console.error(event);
-  });
-});*/
 var board = null;
 var led = null;
 
-Devices.getArduinoComName().then(function (port) {
+/*Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
   board = new five.Board({
     "repl": false,
@@ -37,6 +27,25 @@ Devices.getArduinoComName().then(function (port) {
   board.on("fail", function (event) {
     console.error(event);
   });
+});*/
+
+Devices.getArduinoComName().then(function (port) {
+  console.log("hello arduino board");
+  board = new five.Board({
+    "repl": false,
+    port: port
+  });
+  board.on("ready", function () {
+    console.log("Board ready, lets add light");
+    //console.log(five);
+    led = new five.Led(11);
+    console.log("hey led");
+    led.on();
+    console.log("initial led on");  
+    };
+    board.on("fail", function (event) {
+      console.error(event);
+    });
 });
 
 app.get('/', function (req, res) {
@@ -49,12 +58,12 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-function boardHandler(l) {
+function boardHandler(led) {
   console.log("Board ready, lets add light");
-  console.log(l);
-  l = new five.Led(11);
+  console.log(five);
+  led = new five.Led(11);
   console.log("hey led");
-  l.on();
+  led.on();
   console.log("initial led on");
 };
 
