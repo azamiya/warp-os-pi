@@ -22,6 +22,7 @@ const io = require('socket.io')(http);
     console.error(event);
   });
 });*/
+const five = require('johnny-five');
 
 Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
@@ -45,7 +46,6 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-const five = require('johnny-five');
 let led = null;
 
 function boardHandler() {
