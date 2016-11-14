@@ -30,14 +30,13 @@ Devices.getArduinoComName().then(function (port) {
     "repl": false,
     port: port
   });
-
-});
-
-board.on("ready", function(){
-  console.log("hello ready");
-});
-board.on("fail", function (event) {
-  console.error(event);
+  console.log("port is : " + port);
+  board.on("ready", function(){
+    console.log("hello ready");
+  });
+  board.on("fail", function (event) {
+    console.error(event);
+  });
 });
 
 app.get('/', function (req, res) {
