@@ -5,30 +5,19 @@ var path = require('path');
 //to control iRobot create2
 var fs = require("fs");
 var Repl = require("repl");
-const five = require('johnny-five');
+var five = require('johnny-five');
 var Devices = require("../src/detect");
 
-const express = require('express');
-const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var Roomba = require("../src/roombaController.js");
 
-let board = null;
-let led = null;
-let yaw = 90;
-let servo_yaw = null;
-
-Devices.getArduinoComName().then(function (port) {
-  console.log("hello arduino board");
-  board = new five.Board({
-    "repl": false,
-    port: port
-  });
-  board.on("ready", boardHandler);
-  board.on("fail", function (event) {
-    console.error(event);
-  });
-});
+var board = null;
+var led = null;
+var yaw = 90;
+var servo_yaw = null;
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -65,4 +54,22 @@ io.sockets.on('connection', function(socket) {
   socket.on('servo', function(vol) {
     servo_yaw.to(vol);
   });
+});
+
+Devices.getArduinoComName().then(function (port) {
+  console.log("hello arduino board");
+  board = new five.Board({
+    "repl": false,
+    port: port
+  });
+  board.on("ready", boardHandler);
+  board.on("fail", function (event) {
+    console.error(event);
+  });
+});
+
+
+Devices.getRoombaComName().then(function (port) {
+  var roomba = new Roomba(port);
+  io.of('/irobotCommand').on('connection', roomba.handler.bind(roomba));
 });
