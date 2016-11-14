@@ -22,7 +22,7 @@ peer.on('connection', function(conn) {
     document.getElementById("partnerID").innerHTML = conn.peer;
     conn.on('data', function(data){
         document.getElementById("receive_message").innerHTML = data;
-        convertData(data);
+        //convertData(data);
     });
 });
 
