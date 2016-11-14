@@ -5,6 +5,8 @@ var path = require('path');
 //to control iRobot create2
 var fs = require("fs");
 var Repl = require("repl");
+const five = require('johnny-five');
+
 var Devices = require("../src/detect");
 
 const express = require('express');
@@ -22,7 +24,6 @@ const io = require('socket.io')(http);
     console.error(event);
   });
 });*/
-const five = require('johnny-five');
 var board = null;
 let led = null;
 
