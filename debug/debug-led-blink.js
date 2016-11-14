@@ -51,12 +51,13 @@ http.listen(PORT, function () {
 
 function boardHandler() {
   console.log("Board ready, lets add light");
+  console.log(led);
   led = new five.Led(11);
   console.log("hey led");
   led.on();
   console.log("initial led on");
 };
-/*
+
 io.sockets.on('connection', function(socket) {
   console.log("hello socket");
   socket.on('ledStatus', function(status) {
@@ -68,4 +69,4 @@ io.sockets.on('connection', function(socket) {
       led.stop().off();
     }
   });
-});*/
+});
