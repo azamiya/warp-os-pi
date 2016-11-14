@@ -34,7 +34,6 @@ http.listen(PORT, function () {
 });
 
 const five = require('johnny-five');
-let board = new five.Board({"repl":false});
 let led = null;
 
 function boardHandler() {
