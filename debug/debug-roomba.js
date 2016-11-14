@@ -16,11 +16,11 @@ var io = require('socket.io')(http);
 var Roomba = require("../src/roombaController.js");
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client/index.html'));
+  res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-app.use("/", express.static(path.join(__dirname, 'client')));
-app.use("/assets", express.static(path.join(__dirname, 'client/assets')));
+app.use("/", express.static(path.join(__dirname, '../client')));
+app.use("/assets", express.static(path.join(__dirname, '../client/assets')));
 http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
