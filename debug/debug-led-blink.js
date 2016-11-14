@@ -54,7 +54,9 @@ http.listen(PORT, function () {
 function boardHandler() {
   console.log("Board ready, lets add light");
   led = new five.Led(11);
+  console.log("hey led");
   led.on();
+  console.log("initial led on");
 };
 
 io.sockets.on('connection', function(socket) {
