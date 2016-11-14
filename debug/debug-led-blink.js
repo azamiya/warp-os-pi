@@ -12,7 +12,19 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+/*Devices.getArduinoComName().then(function (port) {
+  board = new five.Board({
+    "repl": false,
+    port: port
+  });
+  board.on("ready", boardHandler);
+  board.on("fail", function (event) {
+    console.error(event);
+  });
+});*/
+
 Devices.getArduinoComName().then(function (port) {
+  console.log("hello arduino board");
   board = new five.Board({
     "repl": false,
     port: port
