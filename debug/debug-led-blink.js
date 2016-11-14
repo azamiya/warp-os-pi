@@ -42,10 +42,10 @@ Devices.getArduinoComName().then(function (port) {
     console.log("hey led");
     led.on();
     console.log("initial led on");  
-    };
     board.on("fail", function (event) {
       console.error(event);
     });
+  });
 });
 
 app.get('/', function (req, res) {
