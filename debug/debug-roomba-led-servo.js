@@ -70,6 +70,7 @@ Devices.getArduinoComName().then(function (port) {
 
 
 Devices.getRoombaComName().then(function (port) {
+  console.log("connected with roomba!!");
   var roomba = new Roomba(port);
   io.of('/irobotCommand').on('connection', roomba.handler.bind(roomba));
 });
