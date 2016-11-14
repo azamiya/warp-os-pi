@@ -46,8 +46,6 @@ var numPixels = 12;
 var fps = 30; // how many frames per second do you want to try?
 
 //Connect to PSVR
-var PSVR = require("psvr");
-var device = new PSVR();
 let yaw = 90;
 let servo_yaw = 90;
 
@@ -93,17 +91,6 @@ function boardHandler() {
     process.exit();
   });
 
-  device.on("data", function(data) {
-    yaw = Math.floor(data.yaw * 0.00002) + 90;
-
-    if( yaw < 0 ) {
-      yaw = 10;
-    } else if ( yaw > 180) {
-      yaw = 170;
-    }
-    console.log(yaw);
-    servo_yaw.to(yaw);
-  });
 };
 
 Devices.getRoombaComName()
