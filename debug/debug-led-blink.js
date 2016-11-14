@@ -26,6 +26,7 @@ const five = require('johnny-five');
 
 Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
+  console.log("port01 is : " + port);
   board = new five.Board({
     "repl": false,
     port: port
