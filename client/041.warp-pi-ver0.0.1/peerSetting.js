@@ -26,6 +26,7 @@ peer.on('connection', function(conn) {
         document.getElementById("receive_message").innerHTML = data;
         convertData(data);
         console.log(typeof(data));
+        console.log(data[0]);
     });
 });
 
