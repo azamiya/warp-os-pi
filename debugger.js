@@ -1,15 +1,9 @@
 "use strict";
 const PORT = 4200;
-const SerialPort = require("serialport");
-const fs = require("fs");
-const debug = require("debug")("create2:driver");
-const Repl = require("repl");
-
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-
 app.use(express.static(__dirname + '/client'));
 
 http.listen(PORT, function(){
@@ -18,8 +12,6 @@ http.listen(PORT, function(){
 
 const five = require('johnny-five');
 let board = new five.Board({"repl":false});
-//let board = new five.Board({ port: "/dev/tty.usbmodem1411" }, {"repl":false});
-
 let led = null;
 let servo_yaw = 90;
 
@@ -49,6 +41,3 @@ io.sockets.on('connection', function(socket) {
     servo_yaw.to(vol);
   });
 });
-
-const roombaController = require("./roombaController.js");
-roombaController.start(io, fs, debug);
