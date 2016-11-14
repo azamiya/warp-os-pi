@@ -23,10 +23,11 @@ window.onload = function(){
 peer.on('connection', function(conn) {
     document.getElementById("partnerID").innerHTML = conn.peer;
     conn.on('data', function(data){
+        console.log(data);
         document.getElementById("receive_message").innerHTML = data;
-        console.log(typeof(data));
+        /*console.log(typeof(data));
         console.log(data[0]);
-        convertData(data);
+        convertData(data);*/
 
     });
 });
