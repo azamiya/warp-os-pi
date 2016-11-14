@@ -42,11 +42,11 @@ function convertData(data) {
     socket.emit('ledStatus', true);
   } else if (data == "LedOff") {
     socket.emit('ledStatus', false);
-  } else if (typeof data == "string"){
+  } else if (typeof data == "string" && data[0] !== "servo"){
     irobotCommand.emit("message",{id : commandList[data]});
-  } else if (typeof data == "object"){
-    console.log(data);
-    //outputUpdate(data);
+  } else if (data[0] === "servo"){
+    console.log(data[1]);
+    //outputUpdate(data[1]);
   } else {
     console.log("unknown command!!");
   }

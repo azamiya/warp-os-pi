@@ -24,9 +24,7 @@ peer.on('connection', function(conn) {
     document.getElementById("partnerID").innerHTML = conn.peer;
     conn.on('data', function(data){
         document.getElementById("receive_message").innerHTML = data;
-        //convertData(data);
-        console.log(typeof(data));
-        console.log(data[0]);
+        convertData(data);
     });
 });
 
