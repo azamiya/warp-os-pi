@@ -2,10 +2,33 @@
 var PORT = 4200;
 var path = require('path');
 
+//to control iRobot create2
+var fs = require("fs");
+var Repl = require("repl");
+const five = require('johnny-five');
+var Devices = require("../src/detect");
+
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+
+let board = null;
+let led = null;
+let yaw = 90;
+let servo_yaw = 90;
+
+Devices.getArduinoComName().then(function (port) {
+  console.log("hello arduino board");
+  board = new five.Board({
+    "repl": false,
+    port: port
+  });
+  board.on("ready", boardHandler);
+  board.on("fail", function (event) {
+    console.error(event);
+  });
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -17,15 +40,8 @@ http.listen(PORT, function () {
   console.log('Listen on ', PORT);
 });
 
-const five = require('johnny-five');
-let board = new five.Board({"repl":false});
-let led = null;
-let yaw = 90;
-let servo_yaw = 90;
-
-
-board.on("ready", function() {
-  console.log("hello board");
+function boardHandler() {
+  console.log("Board ready, lets add light");
   servo_yaw = new five.Servo({
     pin : 6,
     range: [30, 150],
@@ -33,7 +49,7 @@ board.on("ready", function() {
   });
   led = new five.Led(11);
   led.on();
-});
+};
 
 io.sockets.on('connection', function(socket) {
   console.log("hello socket");

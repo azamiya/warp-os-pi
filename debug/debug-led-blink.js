@@ -6,7 +6,6 @@ var path = require('path');
 var fs = require("fs");
 var Repl = require("repl");
 const five = require('johnny-five');
-
 var Devices = require("../src/detect");
 
 const express = require('express');
