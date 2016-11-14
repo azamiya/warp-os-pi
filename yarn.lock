@@ -729,7 +729,7 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
-"browser-serialport@git://github.com/noopkat/browser-serialport.git#api-updates", browser-serialport@latest:
+"browser-serialport@git://github.com/noopkat/browser-serialport#api-updates", browser-serialport@latest:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/browser-serialport/-/browser-serialport-2.0.3.tgz#3890aad440dc364540ad9f86f1e251d1b2011d73"
 
@@ -1985,7 +1985,7 @@ node-pre-gyp-github@^1.1.0:
     commander "^2.9.0"
     github "^0.2.4"
 
-node-pre-gyp@^0.6.26, node-pre-gyp@^0.6.29, node-pre-gyp@^0.6.31:
+node-pre-gyp@^0.6.26, node-pre-gyp@^0.6.29, node-pre-gyp@^0.6.30, node-pre-gyp@^0.6.31:
   version "0.6.31"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.31.tgz#d8a00ddaa301a940615dbcc8caad4024d58f6017"
   dependencies:
@@ -2213,6 +2213,13 @@ proxy-addr@~1.1.2:
   dependencies:
     forwarded "~0.1.0"
     ipaddr.js "1.1.1"
+
+psvr:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/psvr/-/psvr-0.0.5.tgz#62e3f23cdc946103c2935e54cc804b7608d9d500"
+  dependencies:
+    debug "2.2.0"
+    usb "1.2.0"
 
 punycode@^1.4.1:
   version "1.4.1"
@@ -2602,9 +2609,9 @@ stk500-v2@^1.0.1:
     async "^0.9.0"
     buffer-equal "0.0.1"
 
-"stk500@git://github.com/noopkat/js-stk500v1.git#avrgirl":
+"stk500@git://github.com/noopkat/js-stk500v1#avrgirl":
   version "1.0.3"
-  resolved "git://github.com/noopkat/js-stk500v1.git#65d136b7df4953d68c718d7b5402e22b965e6906"
+  resolved "git://github.com/noopkat/js-stk500v1#65d136b7df4953d68c718d7b5402e22b965e6906"
   dependencies:
     async "^0.9.0"
     buffer-equal "0.0.1"
@@ -2794,6 +2801,13 @@ url-parse-lax@^1.0.0:
   resolved "https://registry.yarnpkg.com/url-parse-lax/-/url-parse-lax-1.0.0.tgz#7af8f303645e9bd79a272e7a14ac68bc0609da73"
   dependencies:
     prepend-http "^1.0.1"
+
+usb@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/usb/-/usb-1.2.0.tgz#ab72d9786a047068919a024d08c7a1c5b1e60f47"
+  dependencies:
+    nan "^2.4.0"
+    node-pre-gyp "^0.6.30"
 
 user-home@^1.1.1:
   version "1.1.1"
