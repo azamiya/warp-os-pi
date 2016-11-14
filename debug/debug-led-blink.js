@@ -2,10 +2,26 @@
 var PORT = 4200;
 var path = require('path');
 
+//to control iRobot create2
+var fs = require("fs");
+var Repl = require("repl");
+var Devices = require("../src/detect");
+
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+
+Devices.getArduinoComName().then(function (port) {
+  board = new five.Board({
+    "repl": false,
+    port: port
+  });
+  board.on("ready", boardHandler);
+  board.on("fail", function (event) {
+    console.error(event);
+  });
+});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../client/index.html'));
@@ -21,11 +37,11 @@ const five = require('johnny-five');
 let board = new five.Board({"repl":false});
 let led = null;
 
-board.on("ready", function() {
-  console.log("hello board");
+function boardHandler() {
+  console.log("Board ready, lets add light");
   led = new five.Led(11);
   led.on();
-});
+};
 
 io.sockets.on('connection', function(socket) {
   console.log("hello socket");
