@@ -17,7 +17,7 @@ Devices.getArduinoComName().then(function (port) {
     "repl": false,
     port: port
   });
-  board.on("ready", boardHandler);
+  board.on("ready", boardHandler());
   board.on("fail", function (event) {
     console.error(event);
   });
