@@ -44,8 +44,9 @@ function convertData(data) {
     socket.emit('ledStatus', false);
   } else if (typeof data == "string"){
     irobotCommand.emit("message",{id : commandList[data]});
-  } else if (typeof data == "number"){
-    outputUpdate(data);
+  } else if (typeof data == "object"){
+    console.log(data);
+    //outputUpdate(data);
   } else {
     console.log("unknown command!!");
   }
