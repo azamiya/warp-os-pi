@@ -25,7 +25,7 @@ const io = require('socket.io')(http);
   });
 });*/
 var board = null;
-let led = null;
+var led = null;
 
 Devices.getArduinoComName().then(function (port) {
   console.log("hello arduino board");
